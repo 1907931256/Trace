@@ -22,6 +22,8 @@ namespace TraceCtrlLib
 
     public class TracePanel : Panel
     {
+        private OpenAtStyles OpenAt { get; set; }
+
         public TracePanel()
         {
             if(true)
