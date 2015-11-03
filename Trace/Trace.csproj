@@ -89,6 +89,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TracePanel\TraceCtrlLib.csproj">
+      <Project>{39C242AE-3F0C-46B8-ACAF-8441BB2639A0}</Project>
+      <Name>TraceCtrlLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
