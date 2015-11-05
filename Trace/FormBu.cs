@@ -11,10 +11,10 @@ using TraceCtrlLib.PanelExtend;
 
 namespace Trace
 {
-    public partial class Form1 : Form
+    public partial class FormBu : Form
     {
         private TracePanelManage _tpm;
-        public Form1()
+        public FormBu()
         {
             InitializeComponent();
             _tpm = new TracePanelManage(this);
