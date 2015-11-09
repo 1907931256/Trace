@@ -17,7 +17,7 @@ namespace Trace
         public Form1()
         {
             InitializeComponent();
-            _tpm = new TracePanelManage(this);
+            _tpm = new TracePanelManage(panel1);
         }
 
         private void Form1_Load(object sender, EventArgs e)

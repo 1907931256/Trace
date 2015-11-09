@@ -32,12 +32,14 @@ namespace Trace
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.tracePanel1 = new TraceCtrlLib.PanelExtend.TracePanel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.tracePanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -56,6 +58,14 @@ namespace Trace
             this.tracePanel1.Size = new System.Drawing.Size(308, 266);
             this.tracePanel1.TabIndex = 0;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Location = new System.Drawing.Point(715, 104);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(166, 181);
+            this.panel2.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -73,6 +83,7 @@ namespace Trace
         #endregion
         private System.Windows.Forms.Panel panel1;
         private TracePanel tracePanel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

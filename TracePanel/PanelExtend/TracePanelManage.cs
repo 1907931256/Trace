@@ -121,7 +121,16 @@ namespace TraceCtrlLib.PanelExtend
 
         private void DrawTrace(List<TracePanel> traceNodes)
         {
-            
+            for (int i = 0; i < traceNodes.Count; i++)
+            {
+                TracePanel tpPre = null;
+                TracePanel tpNext = null;
+                if (i > 0)
+                    tpPre = traceNodes[i-1];
+                if (i < traceNodes.Count - 1)
+                    tpNext = traceNodes[i + 1];
+                traceNodes[i].SetTraceAnchor(tpPre, tpNext);
+            }
         }
     }
 }
