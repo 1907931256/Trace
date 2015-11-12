@@ -13,7 +13,7 @@ namespace Trace
 {
     public partial class Form1 : Form
     {
-        private TracePanelManage _tpm;
+        private readonly TracePanelManage _tpm;
         public Form1()
         {
             InitializeComponent();
@@ -26,6 +26,9 @@ namespace Trace
             _tpm.ArrangeAnchorCtrls();
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _tpm.TraceFromTo(tracePanel1, tracePanel1);
+        }
     }
 }
