@@ -74,10 +74,6 @@ namespace Trace
             // 
             // tracePanel9
             // 
-            this.tracePanel9.AnchorBottom = null;
-            this.tracePanel9.AnchorLeft = null;
-            this.tracePanel9.AnchorRight = null;
-            this.tracePanel9.AnchorTop = null;
             this.tracePanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tracePanel9.Location = new System.Drawing.Point(33, 208);
             this.tracePanel9.Name = "tracePanel9";
@@ -87,10 +83,6 @@ namespace Trace
             // 
             // tracePanel8
             // 
-            this.tracePanel8.AnchorBottom = null;
-            this.tracePanel8.AnchorLeft = null;
-            this.tracePanel8.AnchorRight = null;
-            this.tracePanel8.AnchorTop = null;
             this.tracePanel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.tracePanel8.Location = new System.Drawing.Point(33, 104);
             this.tracePanel8.Name = "tracePanel8";
@@ -101,10 +93,6 @@ namespace Trace
             // 
             // tracePanel7
             // 
-            this.tracePanel7.AnchorBottom = null;
-            this.tracePanel7.AnchorLeft = null;
-            this.tracePanel7.AnchorRight = null;
-            this.tracePanel7.AnchorTop = null;
             this.tracePanel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.tracePanel7.Location = new System.Drawing.Point(33, 0);
             this.tracePanel7.Name = "tracePanel7";
@@ -115,10 +103,6 @@ namespace Trace
             // 
             // tracePanel6
             // 
-            this.tracePanel6.AnchorBottom = null;
-            this.tracePanel6.AnchorLeft = null;
-            this.tracePanel6.AnchorRight = null;
-            this.tracePanel6.AnchorTop = null;
             this.tracePanel6.Dock = System.Windows.Forms.DockStyle.Right;
             this.tracePanel6.Location = new System.Drawing.Point(147, 0);
             this.tracePanel6.Name = "tracePanel6";
@@ -128,10 +112,6 @@ namespace Trace
             // 
             // tracePanel1
             // 
-            this.tracePanel1.AnchorBottom = null;
-            this.tracePanel1.AnchorLeft = null;
-            this.tracePanel1.AnchorRight = null;
-            this.tracePanel1.AnchorTop = null;
             this.tracePanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tracePanel1.Location = new System.Drawing.Point(0, 0);
             this.tracePanel1.Name = "tracePanel1";
@@ -150,10 +130,6 @@ namespace Trace
             // 
             // tracePanel2
             // 
-            this.tracePanel2.AnchorBottom = null;
-            this.tracePanel2.AnchorLeft = null;
-            this.tracePanel2.AnchorRight = null;
-            this.tracePanel2.AnchorTop = null;
             this.tracePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tracePanel2.Location = new System.Drawing.Point(0, 0);
             this.tracePanel2.Name = "tracePanel2";
@@ -176,10 +152,6 @@ namespace Trace
             // 
             // tracePanel13
             // 
-            this.tracePanel13.AnchorBottom = null;
-            this.tracePanel13.AnchorLeft = null;
-            this.tracePanel13.AnchorRight = null;
-            this.tracePanel13.AnchorTop = null;
             this.tracePanel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tracePanel13.Location = new System.Drawing.Point(38, 208);
             this.tracePanel13.Name = "tracePanel13";
@@ -189,10 +161,6 @@ namespace Trace
             // 
             // tracePanel12
             // 
-            this.tracePanel12.AnchorBottom = null;
-            this.tracePanel12.AnchorLeft = null;
-            this.tracePanel12.AnchorRight = null;
-            this.tracePanel12.AnchorTop = null;
             this.tracePanel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.tracePanel12.Location = new System.Drawing.Point(38, 104);
             this.tracePanel12.Name = "tracePanel12";
@@ -203,10 +171,6 @@ namespace Trace
             // 
             // tracePanel3
             // 
-            this.tracePanel3.AnchorBottom = null;
-            this.tracePanel3.AnchorLeft = null;
-            this.tracePanel3.AnchorRight = null;
-            this.tracePanel3.AnchorTop = null;
             this.tracePanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.tracePanel3.Location = new System.Drawing.Point(38, 0);
             this.tracePanel3.Name = "tracePanel3";
@@ -227,10 +191,6 @@ namespace Trace
             // 
             // tracePanel15
             // 
-            this.tracePanel15.AnchorBottom = null;
-            this.tracePanel15.AnchorLeft = null;
-            this.tracePanel15.AnchorRight = null;
-            this.tracePanel15.AnchorTop = null;
             this.tracePanel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tracePanel15.Location = new System.Drawing.Point(0, 208);
             this.tracePanel15.Name = "tracePanel15";
@@ -240,10 +200,6 @@ namespace Trace
             // 
             // tracePanel14
             // 
-            this.tracePanel14.AnchorBottom = null;
-            this.tracePanel14.AnchorLeft = null;
-            this.tracePanel14.AnchorRight = null;
-            this.tracePanel14.AnchorTop = null;
             this.tracePanel14.Dock = System.Windows.Forms.DockStyle.Top;
             this.tracePanel14.Location = new System.Drawing.Point(0, 0);
             this.tracePanel14.Name = "tracePanel14";
@@ -265,10 +221,6 @@ namespace Trace
             // 
             // tracePanel10
             // 
-            this.tracePanel10.AnchorBottom = null;
-            this.tracePanel10.AnchorLeft = null;
-            this.tracePanel10.AnchorRight = null;
-            this.tracePanel10.AnchorTop = null;
             this.tracePanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tracePanel10.Location = new System.Drawing.Point(0, 98);
             this.tracePanel10.Name = "tracePanel10";
@@ -279,10 +231,6 @@ namespace Trace
             // 
             // tracePanel5
             // 
-            this.tracePanel5.AnchorBottom = null;
-            this.tracePanel5.AnchorLeft = null;
-            this.tracePanel5.AnchorRight = null;
-            this.tracePanel5.AnchorTop = null;
             this.tracePanel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.tracePanel5.Location = new System.Drawing.Point(0, 43);
             this.tracePanel5.Name = "tracePanel5";
@@ -292,10 +240,6 @@ namespace Trace
             // 
             // tracePanel4
             // 
-            this.tracePanel4.AnchorBottom = null;
-            this.tracePanel4.AnchorLeft = null;
-            this.tracePanel4.AnchorRight = null;
-            this.tracePanel4.AnchorTop = null;
             this.tracePanel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.tracePanel4.Location = new System.Drawing.Point(0, 0);
             this.tracePanel4.Name = "tracePanel4";
@@ -317,10 +261,6 @@ namespace Trace
             // 
             // tracePanel11
             // 
-            this.tracePanel11.AnchorBottom = null;
-            this.tracePanel11.AnchorLeft = null;
-            this.tracePanel11.AnchorRight = null;
-            this.tracePanel11.AnchorTop = null;
             this.tracePanel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tracePanel11.Location = new System.Drawing.Point(131, 0);
             this.tracePanel11.Name = "tracePanel11";

@@ -17,8 +17,34 @@ namespace TraceCtrlLib.PanelExtend
             _container = container;
             //_container.Paint += ContainerOnPaint;
             _tracePanelColl = new List<TracePanel>();
-            foreach (Control child in container.Controls.Cast<Control>().Where(child => child.GetType() == typeof(TracePanel)))
-                _tracePanelColl.Add((TracePanel)child);
+            Point offset = new Point();
+            CollectTracePanel(container, offset,  ref _tracePanelColl);
+        }
+
+        private void CollectTracePanel(Control host, Point offset, ref List<TracePanel> tracePanels)
+        {
+            if (host == null)
+                return;
+            if (tracePanels == null)
+                tracePanels = new List<TracePanel>();
+            foreach (Control child in host.Controls.Cast<Control>().Where(child => child.GetType() == typeof (TracePanel)))
+                AddTracePanel((TracePanel)child, offset);
+            foreach (Control child in host.Controls.Cast<Control>().Where(child => child.GetType() != typeof (TracePanel)))
+            {
+                Point newOffset = new Point(offset.X,offset.Y);
+                newOffset.Offset(child.Location);
+                CollectTracePanel(child, newOffset, ref tracePanels);
+            }
+        }
+
+        private void AddTracePanel(TracePanel traceAdd, Point offset)
+        {
+            if (null == _tracePanelColl)
+                return;
+            if (_tracePanelColl.Contains(traceAdd))
+                return;
+            traceAdd.Offset = offset;
+            _tracePanelColl.Add(traceAdd);
         }
 
         private void ContainerOnPaint(object sender, PaintEventArgs paintEventArgs)
@@ -35,60 +61,60 @@ namespace TraceCtrlLib.PanelExtend
                 {
                     foreach (TracePanel anchor in _tracePanelColl.Where(anchor =>
                     {
-                        int anchorLeft = (int) (anchor.Left + anchor.Width*anchor.OpenStart);
-                        int anchorRight = (int) (anchor.Left + anchor.Width * (anchor.OpenStart+anchor.OpenRatio));
-                        int childLeft = tpChild.Left + (int) (tpChild.Width*tpChild.OpenStart);
-                        int childRight = tpChild.Left + (int) (tpChild.Width*(tpChild.OpenStart + tpChild.OpenRatio));
-                        return anchor.Bottom == tpChild.Top
+                        int anchorLeft = (int) (anchor.Left + anchor.Width*anchor.OpenStart)+anchor.Offset.X;
+                        int anchorRight = (int) (anchor.Left + anchor.Width * (anchor.OpenStart+anchor.OpenRatio)) + anchor.Offset.X;
+                        int childLeft = tpChild.Left + (int) (tpChild.Width*tpChild.OpenStart)+tpChild.Offset.X;
+                        int childRight = tpChild.Left + (int) (tpChild.Width*(tpChild.OpenStart + tpChild.OpenRatio)) + tpChild.Offset.X;
+                        return anchor.Bottom + anchor.Offset.Y == tpChild.Top + tpChild.Offset.Y
                                 && (anchor.OpenAt & AnchorStyles.Bottom) != AnchorStyles.None
-                                &&(anchorLeft.IsBetween(childLeft, childRight, true, true) || anchorRight.IsBetween(childLeft, childRight, true, true));
+                                && GlobalMethod.HasIntersection(anchorLeft, anchorRight, childLeft, childRight);
                     }))
-                        tpChild.AnchorTop.Add(anchor);
+                        tpChild.AddAnchor(anchor,AnchorStyles.Top);
                 }
                 //anchor bottom, to see those top is equal to 
                 if ((tpChild.OpenAt & AnchorStyles.Bottom) != AnchorStyles.None)
                 {
                     foreach (TracePanel anchor in _tracePanelColl.Where(anchor =>
                     {
-                        int anchorLeft = (int)(anchor.Left + anchor.Width * anchor.OpenStart);
-                        int anchorRight = (int)(anchor.Left + anchor.Width * (anchor.OpenStart + anchor.OpenRatio));
-                        int childLeft = tpChild.Left + (int)(tpChild.Width * tpChild.OpenStart);
-                        int childRight = tpChild.Left + (int)(tpChild.Width * (tpChild.OpenStart + tpChild.OpenRatio));
-                        return anchor.Top == tpChild.Bottom
+                        int anchorLeft = (int)(anchor.Left + anchor.Width * anchor.OpenStart) + anchor.Offset.X;
+                        int anchorRight = (int)(anchor.Left + anchor.Width * (anchor.OpenStart + anchor.OpenRatio)) + anchor.Offset.X;
+                        int childLeft = tpChild.Left + (int)(tpChild.Width * tpChild.OpenStart) + tpChild.Offset.X;
+                        int childRight = tpChild.Left + (int)(tpChild.Width * (tpChild.OpenStart + tpChild.OpenRatio)) + tpChild.Offset.X;
+                        return anchor.Top + anchor.Offset.Y == tpChild.Bottom + tpChild.Offset.Y
                                && (anchor.OpenAt & AnchorStyles.Top) != AnchorStyles.None
-                               && (anchorLeft.IsBetween(childLeft, childRight, true, true) || anchorRight.IsBetween(childLeft, childRight, true, true));
+                               && GlobalMethod.HasIntersection(anchorLeft, anchorRight, childLeft, childRight);
                     }))
-                        tpChild.AnchorBottom.Add(anchor);
+                        tpChild.AddAnchor(anchor, AnchorStyles.Bottom);
                 }
                 //anchor left, to see those right is equal to 
                 if ((tpChild.OpenAt & AnchorStyles.Left) != AnchorStyles.None)
                 {
                     foreach (TracePanel anchor in _tracePanelColl.Where(anchor =>
                     {
-                        int anchorTop = (int)(anchor.Top + anchor.Height * anchor.OpenStart);
-                        int anchorBottom = (int)(anchor.Top + anchor.Height * (anchor.OpenStart + anchor.OpenRatio));
-                        int childTop = tpChild.Top + (int)(tpChild.Height * tpChild.OpenStart);
-                        int childBottom = tpChild.Top + (int)(tpChild.Height * (tpChild.OpenStart + tpChild.OpenRatio));
-                        return anchor.Right == tpChild.Left
+                        int anchorTop = (int)(anchor.Top + anchor.Height * anchor.OpenStart) + anchor.Offset.Y;
+                        int anchorBottom = (int)(anchor.Top + anchor.Height * (anchor.OpenStart + anchor.OpenRatio)) + anchor.Offset.Y;
+                        int childTop = tpChild.Top + (int)(tpChild.Height * tpChild.OpenStart) + tpChild.Offset.Y;
+                        int childBottom = tpChild.Top + (int)(tpChild.Height * (tpChild.OpenStart + tpChild.OpenRatio)) + tpChild.Offset.Y;
+                        return anchor.Right + anchor.Offset.X == tpChild.Left + tpChild.Offset.X
                                && (anchor.OpenAt & AnchorStyles.Right) != AnchorStyles.None
-                               && (anchorTop.IsBetween(childTop, childBottom, true, true) || anchorBottom.IsBetween(childTop, childBottom, true, true));
+                               && GlobalMethod.HasIntersection(anchorTop, anchorBottom, childTop, childBottom);
                     }))
-                        tpChild.AnchorLeft.Add(anchor);
+                        tpChild.AddAnchor(anchor, AnchorStyles.Left);
                 }
                 //anchor right, to see those left is equal to 
                 if ((tpChild.OpenAt & AnchorStyles.Right) != AnchorStyles.None)
                 {
                     foreach (TracePanel anchor in _tracePanelColl.Where(anchor =>
                     {
-                        int anchorTop = (int)(anchor.Top + anchor.Height * anchor.OpenStart);
-                        int anchorBottom = (int)(anchor.Top + anchor.Height * (anchor.OpenStart + anchor.OpenRatio));
-                        int childTop = tpChild.Top + (int)(tpChild.Height * tpChild.OpenStart);
-                        int childBottom = tpChild.Top + (int)(tpChild.Height * (tpChild.OpenStart + tpChild.OpenRatio));
-                        return anchor.Left == tpChild.Right
+                        int anchorTop = (int)(anchor.Top + anchor.Height * anchor.OpenStart) + anchor.Offset.Y;
+                        int anchorBottom = (int)(anchor.Top + anchor.Height * (anchor.OpenStart + anchor.OpenRatio)) + anchor.Offset.Y;
+                        int childTop = tpChild.Top + (int)(tpChild.Height * tpChild.OpenStart) + tpChild.Offset.Y;
+                        int childBottom = tpChild.Top + (int)(tpChild.Height * (tpChild.OpenStart + tpChild.OpenRatio)) + tpChild.Offset.Y;
+                        return anchor.Left + anchor.Offset.X == tpChild.Right + tpChild.Offset.X
                                && (anchor.OpenAt & AnchorStyles.Left) != AnchorStyles.None
-                               && (anchorTop.IsBetween(childTop, childBottom, true, true) || anchorBottom.IsBetween(childTop, childBottom, true, true));
+                               && GlobalMethod.HasIntersection(anchorTop, anchorBottom, childTop, childBottom);
                     }))
-                        tpChild.AnchorRight.Add(anchor);
+                        tpChild.AddAnchor(anchor, AnchorStyles.Right);
                 }
             }
         }
