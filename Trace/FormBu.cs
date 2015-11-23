@@ -20,12 +20,6 @@ namespace Trace
             _tpm = new TracePanelManage(this);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //collect the anchor controls
-            _tpm.ArrangeAnchorCtrls();
-        }
-
         
     }
 }

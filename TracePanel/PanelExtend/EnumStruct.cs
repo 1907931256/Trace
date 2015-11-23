@@ -12,5 +12,6 @@ namespace TraceCtrlLib.PanelExtend
     {
         public TracePanel PreviousCtrl { get; set; }
         public TracePanel NextCtrl { get; set; }
+        public String Entity { get; set; }
     }
 }

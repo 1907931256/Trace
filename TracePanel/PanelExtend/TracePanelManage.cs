@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -11,14 +12,17 @@ namespace TraceCtrlLib.PanelExtend
     public class TracePanelManage
     {
         private readonly List<TracePanel> _tracePanelColl;
+        private Hashtable _traceChainEntityHashtable;
         private Control _container;
         public TracePanelManage(Control container)
         {
             _container = container;
             //_container.Paint += ContainerOnPaint;
             _tracePanelColl = new List<TracePanel>();
+            _traceChainEntityHashtable = new Hashtable();
             Point offset = new Point();
             CollectTracePanel(container, offset,  ref _tracePanelColl);
+            ArrangeAnchorCtrls();
         }
 
         private void CollectTracePanel(Control host, Point offset, ref List<TracePanel> tracePanels)
@@ -52,7 +56,7 @@ namespace TraceCtrlLib.PanelExtend
             
         }
 
-        public void ArrangeAnchorCtrls()
+        private void ArrangeAnchorCtrls()
         {
             foreach (TracePanel tpChild in _tracePanelColl)
             {
@@ -119,9 +123,9 @@ namespace TraceCtrlLib.PanelExtend
             }
         }
 
-        public bool TraceFromTo(TracePanel start, TracePanel dest)
+        public bool TraceFromTo(String entity, TracePanel start, TracePanel dest)
         {
-            if (null == start || dest == null)
+            if (string.IsNullOrEmpty(entity) || null == start || dest == null)
                 return false;
 
             List<TracePanel> traceNodes = new List<TracePanel>();
@@ -129,7 +133,7 @@ namespace TraceCtrlLib.PanelExtend
             if (traceNodes.Count <= 0 || !traceNodes.Contains(dest))
                 return false;
             else
-                DrawTrace(traceNodes);
+                AddTrace(entity,traceNodes);
             return true;
         }
 
@@ -165,8 +169,28 @@ namespace TraceCtrlLib.PanelExtend
             }
         }
 
-        private void DrawTrace(List<TracePanel> traceNodes)
+        private void AddTrace(String entity, List<TracePanel> traceNodes)
         {
+            if (String.IsNullOrEmpty(entity) || traceNodes.IsNullOrEmpty())
+                return;
+            if (_traceChainEntityHashtable.Contains(entity))
+            {
+                List<TracePanel> entityTraceNodes = (List<TracePanel>) _traceChainEntityHashtable[entity];
+                if (traceNodes.First(p => true) == entityTraceNodes.Last(p => true))
+                {
+                    traceNodes.RemoveAt(0);
+                    entityTraceNodes.AddRange(traceNodes);
+                    _traceChainEntityHashtable[entity] = entityTraceNodes;
+                }
+                else
+                    return;
+            }
+            else
+                _traceChainEntityHashtable.Add(entity,traceNodes);
+
+            traceNodes = (List<TracePanel>)_traceChainEntityHashtable[entity];
+            foreach (TracePanel tp in traceNodes)
+                tp.ClearTrace(entity);
             for (int i = 0; i < traceNodes.Count; i++)
             {
                 TracePanel tpPre = null;
@@ -175,9 +199,16 @@ namespace TraceCtrlLib.PanelExtend
                     tpPre = traceNodes[i-1];
                 if (i < traceNodes.Count - 1)
                     tpNext = traceNodes[i + 1];
-                traceNodes[i].AddTraceChain(tpPre, tpNext);
+                traceNodes[i].AddTraceChain(entity, tpPre, tpNext);
                 traceNodes[i].Refresh();
             }
+        }
+        
+        public void ClearTrace()
+        {
+            foreach (TracePanel tpChild in _tracePanelColl)
+                tpChild.ClearAllTrace();
+            _traceChainEntityHashtable.Clear();
         }
     }
 }

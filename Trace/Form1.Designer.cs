@@ -54,9 +54,8 @@ namespace Trace
             this.tracePanel6 = new TraceCtrlLib.PanelExtend.TracePanel();
             this.tracePanel1 = new TraceCtrlLib.PanelExtend.TracePanel();
             this.tracePanel16 = new TraceCtrlLib.PanelExtend.TracePanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -70,8 +69,7 @@ namespace Trace
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(984, 0);
@@ -104,6 +102,7 @@ namespace Trace
             // 
             // tracePanel11
             // 
+            this.tracePanel11.DisplayText = null;
             this.tracePanel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tracePanel11.Location = new System.Drawing.Point(131, 0);
             this.tracePanel11.Name = "tracePanel11";
@@ -126,6 +125,7 @@ namespace Trace
             // 
             // tracePanel10
             // 
+            this.tracePanel10.DisplayText = null;
             this.tracePanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tracePanel10.Location = new System.Drawing.Point(0, 98);
             this.tracePanel10.Name = "tracePanel10";
@@ -138,6 +138,7 @@ namespace Trace
             // 
             // tracePanel5
             // 
+            this.tracePanel5.DisplayText = null;
             this.tracePanel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.tracePanel5.Location = new System.Drawing.Point(0, 43);
             this.tracePanel5.Name = "tracePanel5";
@@ -149,6 +150,7 @@ namespace Trace
             // 
             // tracePanel4
             // 
+            this.tracePanel4.DisplayText = null;
             this.tracePanel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.tracePanel4.Location = new System.Drawing.Point(0, 0);
             this.tracePanel4.Name = "tracePanel4";
@@ -170,6 +172,7 @@ namespace Trace
             // 
             // tracePanel2
             // 
+            this.tracePanel2.DisplayText = null;
             this.tracePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tracePanel2.Location = new System.Drawing.Point(0, 0);
             this.tracePanel2.Name = "tracePanel2";
@@ -194,6 +197,7 @@ namespace Trace
             // 
             // tracePanel13
             // 
+            this.tracePanel13.DisplayText = null;
             this.tracePanel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tracePanel13.Location = new System.Drawing.Point(38, 208);
             this.tracePanel13.Name = "tracePanel13";
@@ -205,6 +209,7 @@ namespace Trace
             // 
             // tracePanel12
             // 
+            this.tracePanel12.DisplayText = null;
             this.tracePanel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.tracePanel12.Location = new System.Drawing.Point(38, 104);
             this.tracePanel12.Name = "tracePanel12";
@@ -217,6 +222,7 @@ namespace Trace
             // 
             // tracePanel3
             // 
+            this.tracePanel3.DisplayText = null;
             this.tracePanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.tracePanel3.Location = new System.Drawing.Point(38, 0);
             this.tracePanel3.Name = "tracePanel3";
@@ -239,6 +245,7 @@ namespace Trace
             // 
             // tracePanel15
             // 
+            this.tracePanel15.DisplayText = null;
             this.tracePanel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tracePanel15.Location = new System.Drawing.Point(0, 208);
             this.tracePanel15.Name = "tracePanel15";
@@ -250,6 +257,7 @@ namespace Trace
             // 
             // tracePanel14
             // 
+            this.tracePanel14.DisplayText = null;
             this.tracePanel14.Dock = System.Windows.Forms.DockStyle.Top;
             this.tracePanel14.Location = new System.Drawing.Point(0, 0);
             this.tracePanel14.Name = "tracePanel14";
@@ -275,6 +283,7 @@ namespace Trace
             // 
             // tracePanel9
             // 
+            this.tracePanel9.DisplayText = null;
             this.tracePanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tracePanel9.Location = new System.Drawing.Point(33, 208);
             this.tracePanel9.Name = "tracePanel9";
@@ -286,6 +295,7 @@ namespace Trace
             // 
             // tracePanel8
             // 
+            this.tracePanel8.DisplayText = null;
             this.tracePanel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.tracePanel8.Location = new System.Drawing.Point(33, 104);
             this.tracePanel8.Name = "tracePanel8";
@@ -297,6 +307,7 @@ namespace Trace
             // 
             // tracePanel7
             // 
+            this.tracePanel7.DisplayText = null;
             this.tracePanel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.tracePanel7.Location = new System.Drawing.Point(33, 0);
             this.tracePanel7.Name = "tracePanel7";
@@ -309,6 +320,7 @@ namespace Trace
             // 
             // tracePanel6
             // 
+            this.tracePanel6.DisplayText = null;
             this.tracePanel6.Dock = System.Windows.Forms.DockStyle.Right;
             this.tracePanel6.Location = new System.Drawing.Point(147, 0);
             this.tracePanel6.Name = "tracePanel6";
@@ -320,6 +332,7 @@ namespace Trace
             // 
             // tracePanel1
             // 
+            this.tracePanel1.DisplayText = null;
             this.tracePanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tracePanel1.Location = new System.Drawing.Point(0, 0);
             this.tracePanel1.Name = "tracePanel1";
@@ -331,41 +344,31 @@ namespace Trace
             // 
             // tracePanel16
             // 
+            this.tracePanel16.DisplayText = null;
             this.tracePanel16.Location = new System.Drawing.Point(0, 0);
             this.tracePanel16.Name = "tracePanel16";
             this.tracePanel16.Offset = new System.Drawing.Point(0, 0);
             this.tracePanel16.Size = new System.Drawing.Size(200, 100);
             this.tracePanel16.TabIndex = 0;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(49, 104);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 43);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Panel6";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(49, 165);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(128, 43);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Panel2";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(49, 38);
+            this.button1.Location = new System.Drawing.Point(6, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 43);
+            this.button1.Size = new System.Drawing.Size(94, 24);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Panel9";
+            this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("SimSun", 12F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(103, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(134, 24);
+            this.comboBox1.TabIndex = 1;
             // 
             // Form1
             // 
@@ -414,9 +417,8 @@ namespace Trace
         private TracePanel tracePanel6;
         private TracePanel tracePanel1;
         private TracePanel tracePanel16;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

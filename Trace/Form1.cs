@@ -20,25 +20,47 @@ namespace Trace
             _tpm = new TracePanelManage(panel2);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //collect the anchor controls
-            _tpm.ArrangeAnchorCtrls();
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _tpm.TraceFromTo(tracePanel1, tracePanel9);
+            _tpm.TraceFromTo("Carey1", tracePanel9, tracePanel10);
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            _tpm.TraceFromTo(tracePanel1, tracePanel6);
+            _tpm.TraceFromTo("Carey1", tracePanel10, tracePanel9);
         }
 
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            _tpm.TraceFromTo("Carey1", tracePanel10, tracePanel11);
+        }
         private void button3_Click(object sender, EventArgs e)
         {
-            _tpm.TraceFromTo(tracePanel1, tracePanel2);
+            _tpm.TraceFromTo("Carey1", tracePanel11, tracePanel10);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            _tpm.TraceFromTo("Carey1", tracePanel10, tracePanel12);
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            _tpm.TraceFromTo("Carey1", tracePanel12, tracePanel10);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            _tpm.TraceFromTo("Carey1", tracePanel12, tracePanel13);
+        }
+        private void button7_Click(object sender, EventArgs e)
+        {
+            _tpm.TraceFromTo("Carey1", tracePanel13, tracePanel12);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
